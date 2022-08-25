@@ -17,6 +17,7 @@ nest-asyncio==1.5.5
 packaging==21.3
 parso==0.8.3
 pickleshare==0.7.5
+Pillow==9.2.0
 prompt-toolkit==3.0.30
 psutil==5.9.1
 pure-eval==0.2.2
