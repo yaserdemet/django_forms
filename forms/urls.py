@@ -14,13 +14,26 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 
 ##? ADMIN PANELDE EKLENEN STATIC LERİ GÖRMEK İÇİN BUNLARI EKLE.
 from django.conf import settings
 from django.conf.urls.static import static
 
+from student.views import index
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', index, name='index'), 
+    
+    ## ? => ana urle geldiğinde path yoksa index viewe gitsin ve orada index.html i render etsin
+    
+    path('student/', include('student.urls')),
+    ## * => student urlsi geldiği zamana beni student.urls e yönlendirsin
     
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+
+
+
+
+
